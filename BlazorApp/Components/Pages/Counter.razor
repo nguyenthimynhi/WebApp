@@ -1,0 +1,20 @@
+﻿@page "/counter/{InitialValue:int?}"
+@page "/counter"
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+<h1>Counter</h1>
+<p role="status">Current count: @currentCount</p>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<div style="margin:10px 0px">
+    <input @bind="text" @bind:event="oninput"/>
+    <button @onclick="Clear">Clear</button>
+    <button @onclick="Search">Search</button>
+    <p>Current text: @result</p>
+</div>
+<div style="background-color:gray" @onmouseover="MouseOver" @onmouseout="MouseOut">@action</div>
+
+@if (currentCount > InitialValue + 6)
+{
+<p role="status">You win!</p>
+}
